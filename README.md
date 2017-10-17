@@ -15,6 +15,8 @@ Materials for Software Carpentry workshop at the European Molecular Biology Labo
 
 ### Links
 
+Workshop Etherpad: http://pad.software-carpentry.org/embl2017
+
 Workshop homepage: [tobyhodges.github.io/2017-10-17-heidelberg/](https://tobyhodges.github.io/2017-10-17-heidelberg/)
 
 Workshop info page: [www.embl.de/training/events/2017/SWC17-01/index.html](https://www.embl.de/training/events/2017/SWC17-01/index.html)
