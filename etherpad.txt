@@ -1,0 +1,488 @@
+Welcome to Software Carpentry Etherpad!
+
+This pad is synchronized as you type, so that everyone viewing this page sees the same text. This allows you to collaborate seamlessly on documents.
+
+Use of this service is restricted to members of the Software Carpentry and Data Carpentry community; this is not for general purpose use (for that, try etherpad.wikimedia.org).
+
+Users are expected to follow our code of conduct: http://software-carpentry.org/conduct.html
+
+All content is publicly available under the Creative Commons Attribution License: https://creativecommons.org/licenses/by/4.0/
+
+Software Carpentry
+17-20 October
+EMBL Heidelberg
+
+Welcome!
+
+Those using your own laptop: use the ATC-Guest network to access material from git.embl.de (e.g. the Linux image files linked on lines 51-53)
+
+Login for training computers:
+    username: training
+    password: Tra1ning
+
+    Workshop Etherpad: http://pad.software-carpentry.org/embl2017
+
+    Workshop homepage: http://tobyhodges.github.io/2017-10-17-heidelberg/
+
+    Workshop info page: www.embl.de/training/events/2017/SWC1ll7-01/index.html
+
+    Software Carpentry: https://software-carpentry.org
+
+    Data Carpentry: http://www.datacarpentry.org
+
+    EMBL Bio-IT Course Materials: https://bio-it.embl.de/course-materials/
+
+    EMBL: https://embl.de
+
+
+Post workshop survey:
+    de.NBI: https://de.surveymonkey.com/r/denbi-course?sc=hdhub&id=000087
+    SWC: https://www.surveymonkey.com/r/swc_post_workshop_v1?workshop_id=2017-10-17-heidelberg
+
+Bio-IT Image Processing with Python material: https://git.embl.de/grp-bio-it/python-workshop-image-processing
+
+Maria's email address (for travel docs that need printing etc): maria.bacadare@embl.de
+
+Software/Data Carpentry
+
+The Software Carpentry Instructor Training material is feely available online: http://carpentries.github.io/instructor-training/
+To become certified, you need to undergo the training and then complete a short "checkout" process. To register you interest in taking the training, go here:
+    https://amy.software-carpentry.org/forms/request_training/
+In January, the two organisations, Software and Data Carpentry, will officially become one entity. Our first Data Carpentry workshop at EMBL will take place 2-4 May 2018 - more info will appear on this course webpage soon: https://www.embl.de/training/events/2018/DTC18-01/index.html (Toby won't be the lead instructor, despite what it currently says in the EMBL course listing!)
+
+
+Material:
+
+    Course Material: https://github.com/tobyhodges/software-carpentry-embl-2017
+
+    Markdown Cheat Sheet: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+
+    Jupyter Notebook keyboard shortcuts: https://www.cheatography.com/weidadeyue/cheat-sheets/jupyter-notebook/
+
+
+Day 0
+
+
+https://github.com/tobyhodges/software-carpentry-embl-2017
+
+    download, save to Desktop, unpack
+
+
+Open terminal
+ONLY if working on teaching computers: type
+
+    module load Anaconda3/4.3.0
+
+then
+
+    jupyter notebook
+
+
+"old" version of Day 0 notebook, with all text descriptions etc: https://github.com/tobyhodges/software-carpentry-embl-2017/blob/986862562158b257fd2bab96a4cdbc2f344fe87a/Day0/0-introduction-to-python.ipynb
+
+http://docs.python.org
+
+Day 1
+
+http://www.perpetualpc.net/srtd_commands_rev.html
+
+options to commands:
+    short versions e.g. -a -b -c
+    long versions e.g. --recursive (often have short equivalent -r)
+
+Linux command structure: https://git.embl.de/grp-bio-it/linuxcommandline/blob/master/linux_beginner/_static/LinuxCommandStructure.png
+ls -l output deconstructed: https://git.embl.de/grp-bio-it/linuxcommandline/blob/master/linux_beginner/_static/LongListingDeconstructed.png
+Unix permissions explanation: https://git.embl.de/grp-bio-it/linuxcommandline/blob/master/linux_beginner/_static/LinuxPermissions.png
+
+for more on regular expressions (e.g. for use with grep) I recommend these links:
+    The definitive regex guide & tutorial: http://www.regular-expressions.info/tutorial.html
+    The EMBL Bio-IT regex course material: https://www.gitbook.com/book/tobyhodges/introduction-to-regular-expressions/details
+    A nice way to test your understanding & practise your regex skills: http://regexcrossword.com/
+
+STDIN: STanDard INput, normally your keyboard, the source of input to the shell. Stream number 0
+STDOUT: STanDard OUTput, normally your terminal screen, the place that output of commands is sent to. Stream number 1
+STDERR: STanDard ERRor, normally your terminal screen, the place that error and logging messages are sent. Stream number 2
+
+cmd > some_file    : redirect STDOUT output to some_file. Will overwrite anything already in the file some_file.
+cmd >> some_file  : redirect and append STDOUT output to some_file. Will not overwrite contents of file some_file, instead appending to the end.
+cmd 2> log_file     : redirect STDERR to log_file. Like with >, this will overwrite contents of log_file.
+cmd 2>> log_file   : redirect and append STDERR to log_file.
+You can redirect both STDOUT and STDERR for a single command e.g.
+
+    ls -l /home/myusername/Desktop/ /home/username/NonExistentDirectoryName/ > listing_output 2> listing_error
+
+    (this command makes a long listing of the user's Desktop, and attempts to do so with another, non-existent, directory called NonExistentDirectory. The output of the command is sent to a file called listing_output, and the error message produced is written to a file called listing_error.)
+
+2> log_file 1>&2    : redirect both STDERR and STDOUT to a file called log_file.
+cmd1 | cmd2         : pipe the output of command cmd1 to cmd2 i.e. use the output of cmd1 as the input of cmd2.
+
+use export to set environment variables. use unset to completely remove a variable.
+
+
+Unix Exercises by Frank Thommen
+
+Misc. file tools
+
+
+    Which tool can be used to determine the type of a file?
+
+    Use it on the following files/directories and compare the results:
+
+    a) /usr/bin/tail
+
+    b) ~
+
+    c) /etc/passwd
+
+
+Searching
+
+
+    Which tool can be used to search for files or directories?
+
+    Use it to find all directories in the /etc directory
+
+    Search for the file date in the /bin directory
+
+    List those entries in the directory /bin that are bigger than 400kBytes
+
+
+Misc. terminal
+
+1. Which two tools can be used to redraw/empty the screen?
+
+Permissions
+
+    Create a directory called testpermissions
+
+    Change your working directory to testpermissions
+
+    Create a directory called adir.
+
+    Use the command “which date” to find out where the date program is located.
+
+    Copy this date program into the directory adir.
+
+    Check the permissions of the copied program date
+
+    Change the permissions on date to remove the executable permissions.
+
+    Check the permissions of the program date
+
+    Try running it as ./date or adir/date (depending on your current working directory)
+
+    Change the permissions back so that the file is executable.
+
+    Try running it as ./date or adir/date (depending on your current working directory)
+
+    Copy a textfile from a previos exercise into adir, then change the permissions, so you are not allowed to write to it.
+
+    Then change the permissions so you can't read/cat it either.
+
+    Change your working directory to testpermissions, and then try changing the permissions on adir.
+
+    What are the minimum permissions (on the directory) necessary for you to be able to execute adir/date?
+
+    What are the minimum directory(!) permissions required to a) `cat` a file in a directory and b) to list files in a directory
+
+
+
+IO and Redirections
+
+    1. Use date in conjunction with the redirection to insert the current date into the (new) file current_date (in your home directory).
+
+    2. Inspect the file to make sure it contains (only a single line with) the date.
+
+    3. Use date again to append the current date into the same file.
+
+    4. Again, check that this file now contains two lines with dates
+
+    5. Use grep to file out lines containing the term "TITLE" from all PDB files in the exercises directory and use redirection to insert them into a new file pdb_titles.txt
+
+    6. (OPTIONAL) Upon inspection of the file pdb_titles.txt, you see that it also contains the names of the files in which the term was found. Use either the grep manpage....
+
+
+For more exercises and info on shell scripting etc, check out the EMBl Bio-IT Linux Command Line course materials:
+
+https://bio-it.embl.de/course-materials/
+PDF download page for intermediate course material: https://git.embl.de/grp-bio-it/linuxcommandline/tree/master/linux_intermediate/_build/latex
+
+
+    Snakemake
+
+If you have a problem, that snakemake stops working/becomes unresponsive, execute the following command:
+    module load snakemake/4.0.0-foss-2016b-Python-3.5.2
+After a short wait, snakemake should run again... If not, please put your hand up or stick the pink sticker to the top of your screen.
+
+Snakemake documentation: http://snakemake.readthedocs.io/en/stable/
+
+
+    git clone https://git.embl.de/schwarzl/snakemake-tutorial.git
+
+00-start/Snakemake:
+
+rule summarize:
+    input:
+        "A.fasta",
+        "B.fasta"
+    output:
+        "sum.txt"
+    shell:
+        "wc -c {input} > {output}"
+
+rule extract:
+    input:
+        "sum.txt"
+    output:
+        "extract.txt"
+    shell:
+        "sed 's/^[ ]*//' {input} | cut -f1 -d ' ' > {output}"
+
+
+
+cp ../01-example/*.fasta  .
+
+01-example/Snakemake:
+
+rule all:
+    input:
+        "extract.txt"
+
+rule summarize:
+    input:
+        "A.fasta",
+        "B.fasta"
+    output:
+        "sum.txt"
+    shell:
+        "wc -c {input} > {output}"
+
+rule extract:
+    input:
+        "sum.txt"
+    output:
+        "extract.txt"
+    shell:
+        "sed 's/^[ ]*//' {input} | cut -f1 -d ' ' > {output}"
+
+rule clean:
+    shell:
+        "rm -f extract.txt sum.txt"
+
+snakemake -n   : a "dry-run" of the workflow, which will show what would be run, but doesn't actually run anything. It's a good idea to do this when developing a workflow - you can copy and paste commands one-at-a-time to check everything if you want to.
+
+02-expand/Snakefile:
+
+rule all:
+    input:
+        "extract.txt"
+
+rule summarize:
+    input:
+        expand("{samples}.fasta", samples=SAMPLES)
+    output:
+        "sum.txt"
+    message:
+        "summarizing counts from {input} and creating {output}"
+    shell:
+        "wc -c {input} > {output}"
+
+rule extract:
+    input:
+        "sum.txt"
+    output:
+        "extract.txt"
+    message:
+        "extracting the counts from {input} to {output}"
+    shell:
+        "sed 's/^[ ]*//' {input} | cut -f1 -d ' ' > {output}"
+
+rule clean:
+    shell:
+        "rm -f extract.txt sum.txt"
+
+03-dynamic/Snakemake:
+
+SAMPLES, = glob_wildcards("{samples}.fasta")
+
+rule all:
+    input:
+        "extract.txt"
+
+rule summarize:
+    input:
+        expand("{samples}.fasta", samples=SAMPLES)
+    output:
+        temp("sum.txt")
+    message:
+        "summarizing counts from {input} and creating {output}"
+    shell:
+        "wc -c {input} > {output}"
+
+rule extract:
+    input:
+        "sum.txt"
+    output:
+        "extract.txt"
+    message:
+        "extracting the counts"
+    shell:
+        "sed 's/^[ ]*//' {input} | cut -f1 -d ' ' > {output}"
+
+rule clean:
+    shell:
+        "rm -f extract.txt sum.txt"
+
+logging:
+
+SAMPLES, = glob_wildcards("{samples}.fasta")
+
+rule all:
+    input:
+        "extract.txt"
+
+rule summarize:
+    input:
+        expand("{samples}.fasta", samples=SAMPLES)
+    output:
+        temp("sum.txt")
+    message:
+        "summarizing counts from {input} and creating {output}"
+    log:
+        "sum.log"
+    shell:
+        "wc -c {input} > {output}" 2> {log}
+
+rule extract:
+    input:
+        "sum.txt"
+    output:
+        "extract.txt"
+    message:
+        "extracting the counts"
+    log:
+        "extract.log"
+    shell:
+        "sed 's/^[ ]*//' {input} | cut -f1 -d ' ' > {output} 2> {log}"
+
+rule clean:https://github.com/tobyhodges/software-carpentry-embl-2017
+    shell:
+        "rm -f extract.txt sum.txt"
+
+Coding Style Session
+https://github.com/tobyhodges/debugging-and-style
+
+Some notes on function definitions and placement in a script:
+At the start of a script, you should probably have the following:
+    1. a "shebang" line e.g. #! /usr/bin/env python
+    2. a docstring that gives a brief description of the script/module and what it should be used for
+    3. import statements, so that someone knows as soon as possible what it needed to run the code
+    4. function definitions (and class definitions, which we haven't covered at all)
+If you have a bunch of function definitions, and especially if you think that you'll import those functions into other programs later, you should follow the definitions with a line that says:
+    if __name__ == "__main__":
+        [put all the actual program, e.g. function calls etc, into this block]
+You then follow that "if ..." line with the processing part of your script. By doing this, you avoid running this script-specific content whenever you want to load the functions from the script into another program.
+
+Managing conda environments
+
+    The conda documentation: https://conda.io/docs/user-guide/tasks/manage-environments.html
+
+    A conda cheat sheet: https://conda.io/docs/user-guide/cheatsheet.html
+
+
+Version Control with Git & GitHub
+
+Slides: https://github.com/luispedro/talk-git-intro
+
+STEP 0: GIT CONFIGURATION
+
+git config --global user.name "YOUR NAME"
+git config --global user.email "YOUR EMAIL (IF YOU WANT)"
+git config --global color.ui "auto"
+git config --global core.editor "nano -w"
+
+
+STEP 1:
+
+
+
+
+STEP 2:
+
+Make some change to the file README.md
+
+
+   $ git diff
+   $ git add README.md
+   $ git status
+   $ git commit
+
+git init
+create a file, e.g. basic.txt
+git status
+git add basic.txt
+git status
+git commit
+write a commit message e.g. first commit
+git log
+go to github.com and sign up for an account (or log in if you already have one!)
+verify your email address
+create a new repository
+give it the same name as the folder that you were working in on the command line, get the *HTTPS* url, or type it in on the command line as below
+git remote add origin https://github.com/<your-username>/<your-repository-name>
+git push -u origin master
+now pair up with the person next to you. One of you is Alice, the other Bob
+Alice should add Bob to the Collaborators on the repository (Bob - check your email or click on the bell at the top-right of the GitHub webpage interface)
+now Bob can clone Alice's repository -> navigate to some location on your computer e.g. your Desktop
+git clone https://url-to-alices-repository
+cd alices-repository
+Bob make some change to the project e.g. create a new file, or edit the existing one
+git add new-file
+git commit
+git push -u origin master
+now Alice can pull these changes:
+git pull
+now Alice should repeat the process - make a change, add, commit, push
+Bob can pull the changes that Alice made with git pull
+Now, we will try to create a conflict
+Both of you make changes in your local version of the project
+Alice push first
+Now Bob tries to push...
+this should get rejected
+First, Bob needs to pull the changes, which is referred to as a merge
+git pull
+write a commit message for the merge
+git push -u origin master
+Now, both of you work on first line of alice.txt at the same time...
+Alice commits first
+Bob should try to commit and get rejected, the same as before, then try git pull to fix it
+This creates a merge conflict
+It is now Bob's responsibility to fix this conflict - use a text editor e.g. nano to do this -> remove the lines with >>>>>>, <<<<<< or ======= and change the file to be whatever you think is the appropriate compromise between the conflicting changes
+git add, git commit, git push
+Alice can now pull the merged changes that Bob made, and everything should be sync'd back up
+
+PUSHING TO GITHUB
+
+  git remote add origin https://github.com/luispedro/git-notes-luispedro
+  unset SSH_ASKPASS
+  git push -u origin master
+
+Try Git: https://try.github.io/levels/1/challenges/1
+(to test your knowledge of GitHub)
+
+Machine Learning with Python
+
+Get the data file from here: https://raw.githubusercontent.com/tobyhodges/software-carpentry-sep2016/master/sci_python/iris_data.csv
+
+
+HPC Session
+
+Github Repository
+https://github.com/grimbough/embl_swc_hpc
+
+Login Instructions
+ssh bq_11denbi@129.206.69.162
+Password: SoftwareC
+
+ssh user##@172.16.72.70  (use number from your lab monitor)
+Password SoftwareC
