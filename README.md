@@ -17,6 +17,12 @@ Materials for Software Carpentry workshop at the European Molecular Biology Labo
 
 The updated DNA nucleotide counting script from Toby's coding style/debugging session: https://github.com/tobyhodges/debugging-and-style/blob/swc_embl_2017/README.md
 
+Luis' Git intro talk material: https://github.com/luispedro/talk-git-intro
+
+Mike's HPC lesson material: https://github.com/grimbough/embl_swc_hpc
+
+Tom's Snakemake lesson material: https://git.embl.de/schwarzl/snakemake-tutorial/tree/master
+
 ### Links
 
 Workshop Etherpad: http://pad.software-carpentry.org/embl2017
