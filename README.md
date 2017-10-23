@@ -13,6 +13,10 @@ Materials for Software Carpentry workshop at the European Molecular Biology Labo
 - Thomas Schwarzl
 - Georg Zeller
 
+### Other Workshop Materials
+
+The updated DNA nucleotide counting script from Toby's coding style/debugging session: https://github.com/tobyhodges/debugging-and-style/blob/swc_embl_2017/README.md
+
 ### Links
 
 Workshop Etherpad: http://pad.software-carpentry.org/embl2017
